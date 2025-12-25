@@ -621,12 +621,237 @@
       content: "●";
     }
 
+    /* Large screens */
     @media (max-width: 1400px) {
       .slide { padding: 40px 60px; }
       h1 { font-size: 56px; }
       h2 { font-size: 44px; }
       .stats { gap: 50px; }
       .stat-value { font-size: 48px; }
+    }
+
+    /* Tablets */
+    @media (max-width: 1024px) {
+      .slide {
+        padding: 30px 40px;
+        height: auto;
+        min-height: 100vh;
+      }
+      h1 { font-size: 42px; }
+      h2 { font-size: 36px; }
+      h3 { font-size: 24px; }
+      .subtitle { font-size: 20px; }
+      .stats {
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+      }
+      .stat-value { font-size: 40px; }
+      .stat-label { font-size: 16px; }
+      .grid, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-2 { grid-template-columns: 1fr; }
+      .links-grid { grid-template-columns: 1fr; }
+      .timeline {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .timeline-item {
+        flex: 1 1 45%;
+        min-width: 200px;
+      }
+      .arch-diagram {
+        flex-wrap: wrap;
+        padding: 24px;
+        gap: 12px;
+      }
+      .arch-layer {
+        min-width: 120px;
+        padding: 16px 20px;
+      }
+      .arch-layer .icon { font-size: 36px; }
+      .arch-layer .name { font-size: 18px; }
+      .arch-arrow { font-size: 24px; }
+      .cicd-flow {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 20px;
+      }
+      .cicd-step {
+        min-width: 100px;
+        padding: 14px 18px;
+      }
+      .cicd-icon { font-size: 32px; }
+      .cicd-label { font-size: 16px; }
+      .cicd-arrow { font-size: 24px; }
+      .security-flow {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 20px;
+      }
+      .flow-step { padding: 14px 16px; }
+      .flow-step .icon { font-size: 28px; }
+      .flow-step .name { font-size: 14px; }
+      .flow-arrow { font-size: 20px; }
+      .comparison-box {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .comparison-arrow {
+        transform: rotate(90deg);
+        font-size: 40px;
+      }
+      .comparison-item { padding: 28px 36px; }
+      .comparison-item .price { font-size: 48px; }
+      .result-box .big-number { font-size: 72px; }
+      .result-box p { font-size: 20px; }
+      .map-visual { padding: 28px; }
+      .map-visual .eu-flag { font-size: 56px; }
+      .card { padding: 20px; }
+      .card h4 { font-size: 20px; }
+      .card ul { font-size: 16px; }
+      .link-card { padding: 24px; }
+      .link-card h3 { font-size: 22px; }
+      .link-card p { font-size: 16px; }
+      .nav {
+        bottom: 16px;
+        right: 16px;
+      }
+      .nav a {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+      }
+      .footer-note { font-size: 16px; }
+    }
+
+    /* Small tablets / Large phones */
+    @media (max-width: 768px) {
+      .slide { padding: 24px 24px; }
+      h1 { font-size: 32px; }
+      h2 { font-size: 28px; }
+      h3 { font-size: 20px; }
+      .subtitle { font-size: 16px; margin-bottom: 24px; }
+      .logo-icon { width: 44px; height: 44px; font-size: 18px; }
+      .logo-text { font-size: 24px; }
+      .stats { gap: 20px; }
+      .stat-value { font-size: 32px; }
+      .stat-label { font-size: 14px; }
+      .grid, .grid-2, .grid-4 { grid-template-columns: 1fr; }
+      .timeline { flex-direction: column; }
+      .timeline-item { flex: 1 1 100%; }
+      .arch-diagram {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .arch-layer { min-width: auto; }
+      .arch-arrow {
+        transform: rotate(90deg);
+        font-size: 20px;
+        margin: 4px 0;
+      }
+      .cicd-flow { flex-direction: column; }
+      .cicd-arrow {
+        transform: rotate(90deg);
+        font-size: 20px;
+      }
+      .cicd-arrow-split {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+      }
+      .cicd-envs {
+        flex-direction: row;
+        gap: 12px;
+      }
+      .cicd-env { min-width: auto; flex: 1; }
+      .security-flow { flex-direction: column; }
+      .flow-arrow {
+        transform: rotate(90deg);
+        font-size: 16px;
+      }
+      .comparison-item .price { font-size: 40px; }
+      .comparison-item .label { font-size: 18px; }
+      .result-box { padding: 24px; }
+      .result-box .big-number { font-size: 56px; }
+      .result-box p { font-size: 16px; }
+      .badge {
+        padding: 6px 12px;
+        font-size: 14px;
+      }
+      .slide-number {
+        top: 16px;
+        right: 24px;
+        font-size: 16px;
+      }
+      .footer-note {
+        font-size: 14px;
+        margin-top: 24px;
+        padding-top: 16px;
+      }
+      .footer-note > div {
+        flex-wrap: wrap;
+        gap: 16px !important;
+      }
+    }
+
+    /* Mobile phones */
+    @media (max-width: 480px) {
+      .slide { padding: 20px 16px; }
+      h1 { font-size: 26px; }
+      h2 { font-size: 24px; }
+      h3 { font-size: 18px; }
+      .subtitle { font-size: 14px; }
+      .logo { margin-bottom: 20px; gap: 10px; }
+      .logo-icon { width: 36px; height: 36px; font-size: 14px; border-radius: 10px; }
+      .logo-text { font-size: 20px; }
+      .stats { gap: 16px; margin-top: 20px; }
+      .stat-value { font-size: 28px; }
+      .stat-label { font-size: 12px; }
+      .card { padding: 16px; border-radius: 12px; }
+      .card h4 { font-size: 18px; margin-bottom: 12px; }
+      .card ul { font-size: 14px; }
+      .card li { padding: 6px 0; gap: 8px; }
+      .arch-layer { padding: 12px 16px; }
+      .arch-layer .icon { font-size: 28px; }
+      .arch-layer .name { font-size: 16px; }
+      .arch-layer .tech { font-size: 12px; }
+      .cicd-step { padding: 12px 16px; min-width: auto; }
+      .cicd-icon { font-size: 28px; }
+      .cicd-label { font-size: 14px; }
+      .cicd-desc { font-size: 12px; }
+      .flow-step { padding: 12px 14px; }
+      .flow-step .icon { font-size: 24px; }
+      .flow-step .name { font-size: 12px; }
+      .flow-step .detail { font-size: 10px; }
+      .comparison-item { padding: 20px 24px; }
+      .comparison-item .price { font-size: 32px; }
+      .comparison-item .label { font-size: 14px; }
+      .comparison-item .sublabel { font-size: 12px; }
+      .result-box { padding: 20px; border-radius: 12px; }
+      .result-box .big-number { font-size: 44px; }
+      .result-box p { font-size: 14px; }
+      .map-visual { padding: 20px; }
+      .map-visual .eu-flag { font-size: 44px; }
+      .map-visual h3 { font-size: 16px; }
+      .timeline-item { padding: 16px; }
+      .timeline-item ul { font-size: 14px; }
+      .timeline-item li { padding: 4px 0; }
+      .link-card { padding: 16px; }
+      .link-card h3 { font-size: 18px; margin-bottom: 8px; }
+      .link-card p { font-size: 14px; margin-bottom: 12px; }
+      .link-card .url { font-size: 11px; padding: 10px 12px; }
+      .nav {
+        bottom: 12px;
+        right: 12px;
+        gap: 6px;
+      }
+      .nav a {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+      }
+      .badge { padding: 5px 10px; font-size: 12px; }
+      .footer-note p { font-size: 16px !important; }
     }
   </style>
 </head>
