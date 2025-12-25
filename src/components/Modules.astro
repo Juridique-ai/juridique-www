@@ -1,44 +1,32 @@
 ---
 const modules = [
   {
-    id: "P1",
-    name: "Analyse de Contrat",
-    description: "Détecte les risques et clauses problématiques dans vos contrats. Importez un PDF, Word ou texte et recevez une analyse complète.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
-    time: "30-60 sec",
-    features: ["PDF, Word, Texte", "Évaluation des risques", "Recommandations personnalisées"],
+    id: "01",
+    name: "Contrats",
+    description: "Analyse de risques, clauses abusives, scoring juridique",
+    icon: "📄",
+    time: "30s",
   },
   {
-    id: "P2",
-    name: "Création d'Entreprise",
-    description: "Recommande la meilleure structure juridique pour votre projet. Répondez à quelques questions et obtenez une recommandation adaptée.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
-    time: "20-40 sec",
-    features: ["4 étapes simples", "5 juridictions", "Structure recommandée"],
+    id: "02",
+    name: "Création",
+    description: "Statuts, checklist légale, guide par juridiction",
+    icon: "🏢",
+    time: "20s",
   },
   {
-    id: "P3",
-    name: "Assistant Juridique",
-    description: "Répond à vos questions juridiques en conversation naturelle. L'IA peut vous demander des précisions pour une réponse plus précise.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
-    time: "10-30 sec",
-    features: ["Langage naturel", "Clarifications interactives", "Références légales"],
+    id: "03",
+    name: "Conseil",
+    description: "Réponses instantanées avec sources légales",
+    icon: "💬",
+    time: "10s",
   },
   {
-    id: "P4",
-    name: "Correspondance",
-    description: "Génère des courriers juridiques professionnels. Mise en demeure, résiliation, réclamation et plus encore.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
-    time: "15-30 sec",
-    features: ["Templates professionnels", "Ton juridique adapté", "Prêt à envoyer"],
-  },
-  {
-    id: "P5",
-    name: "Actes de Procédure",
-    description: "Rédige des documents pour les tribunaux. Assignation, conclusions et autres actes selon les normes judiciaires.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
-    time: "30-60 sec",
-    features: ["Normes judiciaires", "Format officiel", "Structure complète"],
+    id: "04",
+    name: "Documents",
+    description: "Mises en demeure, courriers, actes de procédure",
+    icon: "✉️",
+    time: "15s",
   },
 ];
 ---
@@ -47,53 +35,44 @@ const modules = [
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-        5 modules <span class="text-gradient">spécialisés</span>
+      <h2 class="headline-lg mb-6">
+        4 modules.<br/>
+        <span class="text-gradient">100% du besoin PME.</span>
       </h2>
-      <p class="text-text-muted text-lg">
-        Chaque module est conçu pour une tâche juridique spécifique.
-        Résultats en temps réel, streaming de la réponse.
+      <p class="text-text-muted text-lg sm:text-xl">
+        Chaque tâche juridique couverte. Résultats en temps réel.
       </p>
     </div>
 
-    <!-- Modules Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {modules.map((module, index) => (
-        <div class={`group glass-light rounded-2xl p-6 hover:glow-sm transition-all duration-300 ${index === 2 ? 'lg:col-span-1' : ''}`}>
-          <!-- Header -->
-          <div class="flex items-start justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-colors">
-                <Fragment set:html={module.icon} />
-              </div>
-              <div>
-                <span class="text-xs text-text-muted">{module.id}</span>
-                <h3 class="font-semibold">{module.name}</h3>
-              </div>
-            </div>
+    <!-- Modules Grid - bigger cards -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {modules.map((module) => (
+        <div class="group relative bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-2xl p-8 hover:border-primary/50 hover:glow-sm transition-all duration-300">
+          <!-- Icon -->
+          <div class="text-5xl mb-6">{module.icon}</div>
+
+          <!-- Content -->
+          <div class="flex items-center gap-3 mb-3">
+            <h3 class="text-xl font-bold text-primary">{module.name}</h3>
             <span class="text-xs text-text-muted bg-surface px-2 py-1 rounded-full">
               {module.time}
             </span>
           </div>
 
-          <!-- Description -->
-          <p class="text-text-muted text-sm mb-4">
+          <p class="text-text-muted">
             {module.description}
           </p>
-
-          <!-- Features -->
-          <ul class="space-y-2">
-            {module.features.map((feature) => (
-              <li class="flex items-center gap-2 text-sm text-text-muted">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {feature}
-              </li>
-            ))}
-          </ul>
         </div>
       ))}
+    </div>
+
+    <!-- Bottom stat -->
+    <div class="mt-16 text-center">
+      <div class="inline-flex items-center gap-4 px-8 py-4 rounded-2xl glass-light">
+        <span class="text-4xl font-bold text-gradient">5</span>
+        <span class="text-text-muted text-left">juridictions<br/>couvertes</span>
+        <span class="text-3xl">🇫🇷 🇧🇪 🇱🇺 🇩🇪 🇨🇭</span>
+      </div>
     </div>
   </div>
 </section>

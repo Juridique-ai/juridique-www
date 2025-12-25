@@ -1,74 +1,83 @@
 ---
-const jurisdictions = [
-  { code: "FR", name: "France", flag: "🇫🇷" },
-  { code: "BE", name: "Belgique", flag: "🇧🇪" },
-  { code: "LU", name: "Luxembourg", flag: "🇱🇺" },
-  { code: "DE", name: "Allemagne", flag: "🇩🇪" },
-  { code: "CH", name: "Suisse", flag: "🇨🇭" },
-];
-
-const complianceItems = [
+const moats = [
   {
-    title: "RGPD",
-    description: "Protection des données personnelles. Vos informations restent sur votre appareil.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: "100% Européen",
+    subtitle: "Zero Cloud Act",
+    description: "Hébergé en Suède. Vos données ne quittent JAMAIS l'Europe.",
+    icon: "🇪🇺",
   },
   {
-    title: "AI Act",
-    description: "Conforme au règlement européen sur l'IA. Transparence et supervision humaine.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M1 12h4M19 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>`,
+    title: "Zero Data",
+    subtitle: "Rien stocké",
+    description: "Vos documents traités en mémoire. Effacés instantanément.",
+    icon: "🔐",
   },
   {
-    title: "Hébergement EU",
-    description: "Infrastructure 100% européenne. Serveurs Azure en Suède (swedencentral).",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+    title: "RGPD + AI Act",
+    subtitle: "Natif",
+    description: "Conforme dès la conception. Pas un patch post-lancement.",
+    icon: "✅",
   },
   {
-    title: "Données Locales",
-    description: "Profil stocké dans votre navigateur. Aucune donnée personnelle sur nos serveurs.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+    title: "5 Juridictions",
+    subtitle: "Dès le lancement",
+    description: "FR, BE, LU, DE, CH. Aucun concurrent ne couvre ça.",
+    icon: "🌍",
   },
 ];
 ---
 
-<section id="conformite" class="py-24 bg-surface/50">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="conformite" class="py-24 relative overflow-hidden">
+  <!-- Background accent -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none"></div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-        Conforme aux <span class="text-gradient">réglementations européennes</span>
+      <h2 class="headline-lg mb-6">
+        Pourquoi <span class="text-gradient">nous</span><br/>
+        et pas les autres?
       </h2>
-      <p class="text-text-muted text-lg">
-        Vos données restent en Europe. Notre infrastructure respecte les plus hauts standards de conformité.
-      </p>
     </div>
 
-    <!-- Compliance Grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-      {complianceItems.map((item) => (
-        <div class="glass-light rounded-2xl p-6 text-center hover:glow-sm transition-all">
-          <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4">
-            <Fragment set:html={item.icon} />
+    <!-- Moats List -->
+    <div class="max-w-3xl mx-auto space-y-6">
+      {moats.map((moat) => (
+        <div class="flex items-start gap-6 p-6 rounded-2xl glass-light hover:glow-sm transition-all">
+          <!-- Check icon -->
+          <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-2xl">
+            {moat.icon}
           </div>
-          <h3 class="font-semibold mb-2">{item.title}</h3>
-          <p class="text-text-muted text-sm">{item.description}</p>
+
+          <!-- Content -->
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-1">
+              <h3 class="text-xl font-bold">{moat.title}</h3>
+              <span class="text-sm text-primary font-medium">— {moat.subtitle}</span>
+            </div>
+            <p class="text-text-muted">{moat.description}</p>
+          </div>
         </div>
       ))}
     </div>
 
-    <!-- Jurisdictions -->
-    <div class="glass-light rounded-2xl p-8">
-      <h3 class="text-xl font-semibold text-center mb-6">5 juridictions couvertes</h3>
-      <div class="flex flex-wrap justify-center gap-4">
-        {jurisdictions.map((j) => (
-          <div class="flex items-center gap-3 px-4 py-2 rounded-xl bg-surface hover:bg-surface-light transition-colors">
-            <span class="text-2xl">{j.flag}</span>
-            <div>
-              <div class="font-medium text-sm">{j.name}</div>
-              <div class="text-xs text-text-muted">{j.code}</div>
-            </div>
-          </div>
-        ))}
+    <!-- Trust metrics -->
+    <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
+      <div class="text-center p-6 rounded-2xl glass-light">
+        <div class="text-3xl sm:text-4xl font-bold text-primary">4</div>
+        <div class="text-sm text-text-muted">Modules IA</div>
+      </div>
+      <div class="text-center p-6 rounded-2xl glass-light">
+        <div class="text-3xl sm:text-4xl font-bold text-primary">30s</div>
+        <div class="text-sm text-text-muted">Temps réponse</div>
+      </div>
+      <div class="text-center p-6 rounded-2xl glass-light">
+        <div class="text-3xl sm:text-4xl font-bold text-primary">28€</div>
+        <div class="text-sm text-text-muted">/ mois infra</div>
+      </div>
+      <div class="text-center p-6 rounded-2xl glass-light">
+        <div class="text-3xl sm:text-4xl font-bold text-primary">Live</div>
+        <div class="text-sm text-text-muted">En prod</div>
       </div>
     </div>
   </div>

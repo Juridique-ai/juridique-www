@@ -1,72 +1,83 @@
 ---
 const appUrl = "https://aoli-juridique-prod-frontend.azurewebsites.net";
-
-const stats = [
-  { value: "5", label: "Modules spécialisés" },
-  { value: "5", label: "Juridictions EU" },
-  { value: "100%", label: "Hébergé en Europe" },
-];
 ---
 
-<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-radial">
-  <!-- Background decoration -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background glow effects -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[120px]"></div>
   </div>
 
-  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <div class="text-center max-w-4xl mx-auto">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-light text-sm text-text-muted mb-8 animate-fade-in">
-        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-        <span>Conforme RGPD & AI Act</span>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+    <!-- Eyebrow - the hook intro -->
+    <p class="text-text-muted text-sm uppercase tracking-[0.2em] mb-6 animate-fade-in">
+      Le problème que personne n'ose dire
+    </p>
+
+    <!-- THE SHOCKING HOOK -->
+    <h1 class="mega-headline mb-8 animate-fade-in stagger-1">
+      <span class="text-danger">90%</span> des PME<br/>
+      <span class="text-gradient text-glow">n'ont pas d'avocat</span>
+    </h1>
+
+    <!-- The agitation -->
+    <p class="text-xl sm:text-2xl text-text-muted max-w-2xl mx-auto mb-6 animate-fade-in stagger-2">
+      Pas parce qu'elles n'en ont pas besoin.
+    </p>
+    <p class="text-xl sm:text-2xl text-white font-semibold max-w-2xl mx-auto mb-12 animate-fade-in stagger-2">
+      Parce qu'elles n'en ont pas les moyens.
+    </p>
+
+    <!-- The solution teaser - price comparison -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-12 animate-fade-in stagger-3">
+      <div class="text-center">
+        <div class="text-4xl sm:text-5xl font-bold text-danger strike">200€</div>
+        <div class="text-sm text-text-muted">Avocat / heure</div>
       </div>
-
-      <!-- Headline -->
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in stagger-1">
-        Assistance juridique
-        <span class="text-gradient">intelligente</span>
-        <br />pour l'Europe
-      </h1>
-
-      <!-- Subheadline -->
-      <p class="text-lg sm:text-xl text-text-muted max-w-2xl mx-auto mb-10 animate-fade-in stagger-2">
-        Analysez vos contrats, créez votre entreprise, obtenez des conseils juridiques.
-        Une plateforme IA couvrant 5 juridictions européennes.
-      </p>
-
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in stagger-3">
-        <a
-          href={appUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-background font-semibold hover:bg-primary-light transition-all hover:scale-105 glow"
-        >
-          Commencer maintenant
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <polyline points="12 5 19 12 12 19" />
-          </svg>
-        </a>
-        <a
-          href="#modules"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-light font-semibold hover:bg-white/10 transition-all"
-        >
-          Découvrir les modules
-        </a>
+      <div class="text-3xl text-text-muted">→</div>
+      <div class="text-center">
+        <div class="text-4xl sm:text-5xl font-bold text-gradient">0.10€</div>
+        <div class="text-sm text-text-muted">Juridique AI</div>
       </div>
+    </div>
 
-      <!-- Stats -->
-      <div class="grid grid-cols-3 gap-8 max-w-lg mx-auto animate-fade-in stagger-4">
-        {stats.map((stat) => (
-          <div class="text-center">
-            <div class="text-2xl sm:text-3xl font-bold text-primary">{stat.value}</div>
-            <div class="text-sm text-text-muted">{stat.label}</div>
-          </div>
-        ))}
-      </div>
+    <!-- CTA -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in stagger-4">
+      <a
+        href={appUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-background font-bold text-lg hover:bg-primary-light transition-all hover:scale-105 glow animate-pulse-glow"
+      >
+        Essayer maintenant
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+      <a
+        href="#modules"
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-full glass-light font-semibold hover:bg-white/10 transition-all"
+      >
+        Voir comment ça marche
+      </a>
+    </div>
+
+    <!-- Social proof badges -->
+    <div class="flex flex-wrap items-center justify-center gap-3 animate-fade-in stagger-5">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light text-sm">
+        <span class="text-primary">✓</span> RGPD
+      </span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light text-sm">
+        <span class="text-primary">✓</span> AI Act
+      </span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light text-sm">
+        <span class="text-primary">✓</span> 100% EU
+      </span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light text-sm">
+        <span class="text-primary">✓</span> Zero Data
+      </span>
     </div>
   </div>
 

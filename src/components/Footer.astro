@@ -4,34 +4,45 @@ const appUrl = "https://aoli-juridique-prod-frontend.azurewebsites.net";
 
 const links = [
   { label: "Modules", href: "#modules" },
-  { label: "Conformité", href: "#conformite" },
+  { label: "Avantages", href: "#conformite" },
   { label: "Tarifs", href: "#tarifs" },
 ];
 
 const jurisdictions = ["France", "Belgique", "Luxembourg", "Allemagne", "Suisse"];
 ---
 
-<footer class="py-12 border-t border-border">
+<footer class="py-16 border-t border-white/10">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-4 gap-8 mb-12">
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
       <!-- Brand -->
       <div class="md:col-span-2">
         <a href="/" class="flex items-center gap-2 mb-4">
-          <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span class="text-background font-bold text-sm">JA</span>
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+            <span class="text-background font-bold">JA</span>
           </div>
-          <span class="font-semibold text-lg">Juridique AI</span>
+          <span class="font-bold text-xl">Juridique AI</span>
         </a>
-        <p class="text-text-muted text-sm max-w-sm">
-          Assistance juridique intelligente pour l'Europe.
-          Analysez vos contrats, créez votre entreprise, obtenez des conseils juridiques.
+        <p class="text-text-muted max-w-sm mb-6">
+          Le droit accessible à tous. 2000× moins cher qu'un avocat.
+          Instantané. 100% conforme.
         </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full glass-light text-xs">
+            <span class="text-primary">✓</span> RGPD
+          </span>
+          <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full glass-light text-xs">
+            <span class="text-primary">✓</span> AI Act
+          </span>
+          <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full glass-light text-xs">
+            <span class="text-primary">✓</span> 100% EU
+          </span>
+        </div>
       </div>
 
       <!-- Navigation -->
       <div>
         <h4 class="font-semibold mb-4">Navigation</h4>
-        <ul class="space-y-2">
+        <ul class="space-y-3">
           {links.map((link) => (
             <li>
               <a href={link.href} class="text-text-muted hover:text-text transition-colors text-sm">
@@ -40,13 +51,18 @@ const jurisdictions = ["France", "Belgique", "Luxembourg", "Allemagne", "Suisse"
             </li>
           ))}
           <li>
-            <a href={appUrl} target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-light transition-colors text-sm">
+            <a href={appUrl} target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-light transition-colors text-sm font-medium">
               Accéder à l'app →
             </a>
           </li>
           <li>
+            <a href="/pitch.html" target="_blank" class="text-text-muted hover:text-text transition-colors text-sm">
+              Pitch investisseurs
+            </a>
+          </li>
+          <li>
             <a href="/presentation.html" target="_blank" class="text-text-muted hover:text-text transition-colors text-sm">
-              Présentation investisseurs
+              Présentation technique
             </a>
           </li>
         </ul>
@@ -64,19 +80,17 @@ const jurisdictions = ["France", "Belgique", "Luxembourg", "Allemagne", "Suisse"
     </div>
 
     <!-- Bottom -->
-    <div class="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-text-muted text-sm">
         © {currentYear} Juridique AI. Tous droits réservés.
       </p>
       <div class="flex items-center gap-4 text-text-muted text-sm">
         <span class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full bg-primary"></span>
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
           Hébergé en Europe
         </span>
         <span>•</span>
-        <span>Conforme RGPD</span>
-        <span>•</span>
-        <span>Conforme AI Act</span>
+        <span>Zero Data</span>
       </div>
     </div>
   </div>

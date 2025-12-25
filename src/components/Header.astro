@@ -1,7 +1,7 @@
 ---
 const navLinks = [
   { href: "#modules", label: "Modules" },
-  { href: "#conformite", label: "Conformité" },
+  { href: "#conformite", label: "Avantages" },
   { href: "#tarifs", label: "Tarifs" },
 ];
 
@@ -13,10 +13,10 @@ const appUrl = "https://aoli-juridique-prod-frontend.azurewebsites.net";
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 group">
-        <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center transition-transform group-hover:scale-110">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center transition-transform group-hover:scale-110">
           <span class="text-background font-bold text-sm">JA</span>
         </div>
-        <span class="font-semibold text-lg hidden sm:block">Juridique AI</span>
+        <span class="font-bold text-lg hidden sm:block">Juridique AI</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -37,19 +37,15 @@ const appUrl = "https://aoli-juridique-prod-frontend.azurewebsites.net";
           href={appUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-background font-medium text-sm hover:bg-primary-light transition-colors"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-background font-semibold text-sm hover:bg-primary-light transition-colors"
         >
-          Accéder à l'app
+          Essayer
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-            <polyline points="15 3 21 3 21 9" />
-            <line x1="10" y1="14" x2="21" y2="3" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
           </svg>
         </a>
       </div>
     </div>
   </nav>
 </header>
-
-<!-- Spacer for fixed header -->
-<div class="h-16"></div>
