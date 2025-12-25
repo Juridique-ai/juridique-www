@@ -39,7 +39,8 @@ jobs:
               --account-name juridiqueaiwww9381 \
               --destination '$web' \
               --source dist \
-              --overwrite
+              --overwrite \
+              --auth-mode login
 
       - name: Purge CDN (if configured)
         uses: azure/cli@v2
