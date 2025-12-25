@@ -1,0 +1,55 @@
+---
+const navLinks = [
+  { href: "#modules", label: "Modules" },
+  { href: "#conformite", label: "Conformité" },
+  { href: "#tarifs", label: "Tarifs" },
+];
+
+const appUrl = "https://aoli-juridique-prod-frontend.azurewebsites.net";
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 glass">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center transition-transform group-hover:scale-110">
+          <span class="text-background font-bold text-sm">JA</span>
+        </div>
+        <span class="font-semibold text-lg hidden sm:block">Juridique AI</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-text-muted hover:text-text transition-colors text-sm font-medium"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-4">
+        <a
+          href={appUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-background font-medium text-sm hover:bg-primary-light transition-colors"
+        >
+          Accéder à l'app
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-16"></div>

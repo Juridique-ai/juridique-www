@@ -1,0 +1,80 @@
+---
+const costPerRequest = [
+  { module: "Analyse de Contrat", min: "0.03", max: "0.15" },
+  { module: "Création d'Entreprise", min: "0.03", max: "0.15" },
+  { module: "Assistant Juridique", min: "0.02", max: "0.10" },
+  { module: "Correspondance", min: "0.02", max: "0.05" },
+  { module: "Actes de Procédure", min: "0.04", max: "0.08" },
+];
+---
+
+<section id="tarifs" class="py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+        Modèle <span class="text-gradient">transparent</span>
+      </h2>
+      <p class="text-text-muted text-lg">
+        Payez uniquement ce que vous utilisez. Pas d'abonnement, pas de frais cachés.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- Cost per request -->
+      <div class="glass-light rounded-2xl p-8">
+        <h3 class="text-xl font-semibold mb-6">Coût par analyse</h3>
+        <div class="space-y-4">
+          {costPerRequest.map((item) => (
+            <div class="flex items-center justify-between py-3 border-b border-border last:border-0">
+              <span class="text-text-muted">{item.module}</span>
+              <span class="font-mono font-medium">
+                {item.min}€ - {item.max}€
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Comparison -->
+      <div class="glass-light rounded-2xl p-8">
+        <h3 class="text-xl font-semibold mb-6">Comparaison</h3>
+
+        <div class="space-y-6">
+          <!-- Traditional -->
+          <div class="p-4 rounded-xl bg-surface">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-text-muted">Consultation avocat</span>
+              <span class="font-mono font-medium">150€ - 300€</span>
+            </div>
+            <div class="text-sm text-text-muted">par heure</div>
+          </div>
+
+          <!-- Our solution -->
+          <div class="p-4 rounded-xl bg-primary/10 border border-primary/20">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-primary font-medium">Juridique AI</span>
+              <span class="font-mono font-medium text-primary">0.03€ - 0.15€</span>
+            </div>
+            <div class="text-sm text-text-muted">par analyse</div>
+          </div>
+
+          <!-- Savings -->
+          <div class="text-center py-4">
+            <div class="text-3xl font-bold text-gradient">1000x</div>
+            <div class="text-text-muted">moins cher en moyenne</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infrastructure note -->
+    <div class="mt-8 text-center">
+      <p class="text-text-muted text-sm">
+        Infrastructure: ~28€/mois (environnements DEV + PROD).
+        <br />
+        Les coûts IA sont facturés à l'usage via Azure OpenAI.
+      </p>
+    </div>
+  </div>
+</section>

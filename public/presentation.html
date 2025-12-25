@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juridique AI - Présentation Investisseurs</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #10b981;
+      --secondary: #3b82f6;
+      --accent: #8b5cf6;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+      overflow-x: hidden;
+    }
+
+    .slide {
+      height: 100vh;
+      padding: 60px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-bottom: 1px solid #262626;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-number {
+      position: absolute;
+      top: 30px;
+      right: 80px;
+      font-size: 20px;
+      color: var(--muted);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .logo-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--bg);
+    }
+
+    .logo-text {
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 72px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    h3 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .gradient {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 28px;
+      color: var(--muted);
+      max-width: 900px;
+      margin-bottom: 48px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 80px;
+      margin-top: 40px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 20px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid #262626;
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .card h4 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    .card li {
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .link-card {
+      background: var(--surface);
+      border: 1px solid #262626;
+      border-radius: 16px;
+      padding: 32px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s;
+    }
+
+    .link-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+    }
+
+    .link-card h3 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .link-card p {
+      color: var(--muted);
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .link-card .url {
+      font-family: monospace;
+      font-size: 16px;
+      color: var(--primary);
+      background: rgba(16, 185, 129, 0.1);
+      padding: 12px 16px;
+      border-radius: 8px;
+      word-break: break-all;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--primary);
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .badge.blue {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--secondary);
+    }
+
+    .badge.purple {
+      background: rgba(139, 92, 246, 0.1);
+      color: var(--accent);
+    }
+
+    .footer-note {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #262626;
+      color: var(--muted);
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 30px;
+      right: 60px;
+      display: flex;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    .nav a {
+      width: 44px;
+      height: 44px;
+      background: var(--surface);
+      border: 1px solid #262626;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 18px;
+    }
+
+    .nav a:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--bg);
+    }
+
+    .comparison-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      margin: 40px 0;
+    }
+
+    .comparison-item {
+      text-align: center;
+      padding: 40px 50px;
+      background: var(--surface);
+      border-radius: 16px;
+      border: 2px solid #262626;
+    }
+
+    .comparison-item.highlight {
+      border-color: var(--primary);
+      box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
+    }
+
+    .comparison-item .price {
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .comparison-item .price.old {
+      color: var(--danger);
+      text-decoration: line-through;
+    }
+
+    .comparison-item .price.new {
+      color: var(--primary);
+    }
+
+    .comparison-item .label {
+      color: var(--muted);
+      font-size: 22px;
+    }
+
+    .comparison-item .sublabel {
+      color: var(--muted);
+      font-size: 18px;
+      margin-top: 12px;
+    }
+
+    .comparison-arrow {
+      font-size: 56px;
+      color: var(--primary);
+    }
+
+    .result-box {
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+      border-radius: 16px;
+      margin-top: 32px;
+    }
+
+    .result-box .big-number {
+      font-size: 96px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .result-box p {
+      font-size: 24px;
+      color: var(--muted);
+    }
+
+    /* Architecture Diagram */
+    .arch-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+      background: var(--surface);
+      border: 1px solid #262626;
+      border-radius: 16px;
+      margin-bottom: 32px;
+    }
+
+    .arch-layer {
+      text-align: center;
+      padding: 24px 36px;
+      border-radius: 14px;
+      min-width: 180px;
+    }
+
+    .arch-layer.frontend {
+      background: rgba(59, 130, 246, 0.15);
+      border: 3px solid var(--secondary);
+    }
+
+    .arch-layer.backend {
+      background: rgba(16, 185, 129, 0.15);
+      border: 3px solid var(--primary);
+    }
+
+    .arch-layer.security {
+      background: rgba(139, 92, 246, 0.15);
+      border: 3px solid var(--accent);
+    }
+
+    .arch-layer.ai {
+      background: rgba(245, 158, 11, 0.15);
+      border: 3px solid var(--warning);
+    }
+
+    .arch-layer .icon {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .arch-layer .name {
+      font-weight: 600;
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .arch-layer .tech {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .arch-arrow {
+      color: var(--muted);
+      font-size: 36px;
+    }
+
+    /* CI/CD Flow Diagram */
+    .cicd-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid #262626;
+      border-radius: 16px;
+    }
+
+    .cicd-step {
+      text-align: center;
+      padding: 20px 28px;
+      border-radius: 14px;
+      background: rgba(16, 185, 129, 0.05);
+      border: 3px solid #262626;
+      min-width: 140px;
+    }
+
+    .cicd-step.developer {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: var(--secondary);
+    }
+
+    .cicd-step.github {
+      background: rgba(139, 92, 246, 0.1);
+      border-color: var(--accent);
+    }
+
+    .cicd-step.robot {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: var(--primary);
+    }
+
+    .cicd-icon {
+      font-size: 44px;
+      margin-bottom: 8px;
+    }
+
+    .cicd-label {
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .cicd-desc {
+      font-size: 16px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .cicd-arrow {
+      color: var(--muted);
+      font-size: 36px;
+    }
+
+    .cicd-arrow-split {
+      display: flex;
+      flex-direction: column;
+      font-size: 32px;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .cicd-envs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cicd-env {
+      text-align: center;
+      padding: 16px 28px;
+      border-radius: 10px;
+      min-width: 140px;
+    }
+
+    .cicd-env.dev {
+      background: rgba(59, 130, 246, 0.15);
+      border: 3px solid var(--secondary);
+    }
+
+    .cicd-env.prod {
+      background: rgba(16, 185, 129, 0.15);
+      border: 3px solid var(--primary);
+    }
+
+    .cicd-env .cicd-icon {
+      font-size: 32px;
+      margin-bottom: 4px;
+    }
+
+    .cicd-env .cicd-label {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .cicd-env .cicd-desc {
+      font-size: 14px;
+    }
+
+    /* Security Flow */
+    .security-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid #262626;
+      border-radius: 16px;
+      margin-bottom: 32px;
+    }
+
+    .flow-step {
+      text-align: center;
+      padding: 20px 24px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.05);
+      border: 2px solid #262626;
+    }
+
+    .flow-step.secure {
+      border-color: var(--primary);
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .flow-step .icon {
+      font-size: 40px;
+      margin-bottom: 8px;
+    }
+
+    .flow-step .name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .flow-step .detail {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .flow-arrow {
+      color: var(--primary);
+      font-size: 28px;
+    }
+
+    .map-visual {
+      background: var(--surface);
+      border: 1px solid #262626;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .map-visual .eu-flag {
+      font-size: 80px;
+      margin-bottom: 16px;
+    }
+
+    .map-visual h3 {
+      margin-bottom: 8px;
+    }
+
+    .timeline {
+      display: flex;
+      gap: 20px;
+    }
+
+    .timeline-item {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid #262626;
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .timeline-item h4 {
+      margin-bottom: 20px;
+    }
+
+    .timeline-item ul {
+      list-style: none;
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    .timeline-item li {
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .timeline-item li::before {
+      content: "○";
+      color: var(--primary);
+      font-size: 14px;
+    }
+
+    .timeline-item.done li::before {
+      content: "●";
+    }
+
+    @media (max-width: 1400px) {
+      .slide { padding: 40px 60px; }
+      h1 { font-size: 56px; }
+      h2 { font-size: 44px; }
+      .stats { gap: 50px; }
+      .stat-value { font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <a href="#slide1">1</a>
+  <a href="#slide2">2</a>
+  <a href="#slide3">3</a>
+  <a href="#slide4">4</a>
+  <a href="#slide5">5</a>
+  <a href="#slide6">6</a>
+  <a href="#slide7">7</a>
+  <a href="#slide8">8</a>
+</nav>
+
+<!-- SLIDE 1: Overview -->
+<section class="slide" id="slide1">
+  <span class="slide-number">1 / 8</span>
+
+  <div class="logo">
+    <div class="logo-icon">JA</div>
+    <span class="logo-text">Juridique AI</span>
+  </div>
+
+  <h1>Assistance juridique<br><span class="gradient">intelligente</span> pour l'Europe</h1>
+
+  <p class="subtitle">
+    Plateforme IA couvrant 5 juridictions européennes : analyse de contrats,
+    création d'entreprise, conseils juridiques, correspondance et actes de procédure.
+  </p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Modules</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Pays EU</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">100%</div>
+      <div class="stat-label">Hébergé EU</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">~28€</div>
+      <div class="stat-label">Coût/mois</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    France • Belgique • Luxembourg • Allemagne • Suisse
+  </div>
+</section>
+
+<!-- SLIDE 2: Architecture -->
+<section class="slide" id="slide2">
+  <span class="slide-number">2 / 8</span>
+
+  <h2>Architecture <span class="gradient">technique</span></h2>
+
+  <!-- Visual Architecture Diagram -->
+  <div class="arch-diagram">
+    <div class="arch-layer frontend">
+      <div class="icon">🖥️</div>
+      <div class="name">Frontend</div>
+      <div class="tech">Next.js • React</div>
+    </div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-layer security">
+      <div class="icon">🔐</div>
+      <div class="name">Auth</div>
+      <div class="tech">Microsoft Entra</div>
+    </div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-layer backend">
+      <div class="icon">⚡</div>
+      <div class="name">Backend</div>
+      <div class="tech">Azure Functions</div>
+    </div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-layer ai">
+      <div class="icon">🤖</div>
+      <div class="name">IA</div>
+      <div class="tech">Azure OpenAI</div>
+    </div>
+  </div>
+
+  <!-- CI/CD Visual Schema -->
+  <h3>Déploiement automatisé (CI/CD)</h3>
+
+  <div class="cicd-flow">
+    <div class="cicd-step developer">
+      <div class="cicd-icon">👨‍💻</div>
+      <div class="cicd-label">Développeur</div>
+      <div class="cicd-desc">Écrit le code</div>
+    </div>
+    <div class="cicd-arrow">→</div>
+    <div class="cicd-step github">
+      <div class="cicd-icon">📦</div>
+      <div class="cicd-label">GitHub</div>
+      <div class="cicd-desc">Stocke le code</div>
+    </div>
+    <div class="cicd-arrow">→</div>
+    <div class="cicd-step robot">
+      <div class="cicd-icon">🤖</div>
+      <div class="cicd-label">Robot</div>
+      <div class="cicd-desc">Teste & déploie</div>
+    </div>
+    <div class="cicd-arrow-split">
+      <div>↗</div>
+      <div>↘</div>
+    </div>
+    <div class="cicd-envs">
+      <div class="cicd-env dev">
+        <div class="cicd-icon">🧪</div>
+        <div class="cicd-label">DEV</div>
+        <div class="cicd-desc">Tests</div>
+      </div>
+      <div class="cicd-env prod">
+        <div class="cicd-icon">🚀</div>
+        <div class="cicd-label">PROD</div>
+        <div class="cicd-desc">Utilisateurs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3: Compliance -->
+<section class="slide" id="slide3">
+  <span class="slide-number">3 / 8</span>
+
+  <h2>Conformité <span class="gradient">européenne</span></h2>
+
+  <div class="grid-4">
+    <div class="card">
+      <h4>🛡️ RGPD</h4>
+      <ul>
+        <li>Données sur appareil</li>
+        <li>Aucun stockage serveur</li>
+        <li>Droit à l'effacement</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>🤖 AI Act</h4>
+      <ul>
+        <li>Risque limité</li>
+        <li>Transparence totale</li>
+        <li>Supervision humaine</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>🇪🇺 Souveraineté</h4>
+      <ul>
+        <li>Pas de Cloud Act</li>
+        <li>Droit EU uniquement</li>
+        <li>Datacenter Suède</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>✅ Certifications</h4>
+      <ul>
+        <li>ISO 27001</li>
+        <li>SOC 1, 2, 3</li>
+        <li>C5 (Allemagne)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="result-box">
+    <div class="big-number">100%</div>
+    <p>Toutes les réglementations européennes respectées</p>
+  </div>
+</section>
+
+<!-- SLIDE 4: Security -->
+<section class="slide" id="slide4">
+  <span class="slide-number">4 / 8</span>
+
+  <h2>Architecture <span class="gradient">sécurité</span></h2>
+
+  <div class="security-flow">
+    <div class="flow-step">
+      <div class="icon">👤</div>
+      <div class="name">Utilisateur</div>
+      <div class="detail">Navigateur</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step secure">
+      <div class="icon">🔐</div>
+      <div class="name">Auth Microsoft</div>
+      <div class="detail">Entra ID</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step secure">
+      <div class="icon">🇪🇺</div>
+      <div class="name">Azure EU</div>
+      <div class="detail">Sweden</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step secure">
+      <div class="icon">🤖</div>
+      <div class="name">OpenAI EU</div>
+      <div class="detail">Analyse IA</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="icon">📄</div>
+      <div class="name">Réponse</div>
+      <div class="detail">Streaming</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>🔒 Protection</h4>
+      <ul>
+        <li>SSO Enterprise + 2FA</li>
+        <li>TLS 1.2+ / HTTPS only</li>
+        <li>Secrets dans Key Vault</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>💾 Données utilisateur</h4>
+      <ul>
+        <li>Stockées en localStorage</li>
+        <li>Jamais sur nos serveurs</li>
+        <li>Contrôle total utilisateur</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5: Azure EU -->
+<section class="slide" id="slide5">
+  <span class="slide-number">5 / 8</span>
+
+  <h2>Pourquoi <span class="gradient">Azure Europe</span> ?</h2>
+
+  <div class="map-visual">
+    <div class="eu-flag">🇪🇺</div>
+    <h3>Datacenter: Sweden Central (Stockholm)</h3>
+    <p style="color: var(--muted); font-size: 22px;">France • Belgique • Luxembourg • Allemagne • Suisse</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h4>📍 Latence</h4>
+      <ul>
+        <li>Paris: ~20ms</li>
+        <li>Francfort: ~15ms</li>
+        <li>Zurich: ~30ms</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>✅ Garanties</h4>
+      <ul>
+        <li>SLA 99.9%</li>
+        <li>Support 24/7</li>
+        <li>Conformité auditée</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🚫 vs. US Clouds</h4>
+      <ul>
+        <li>AWS/GCP: Cloud Act</li>
+        <li>Transfert US possible</li>
+        <li>Azure EU: protégé</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6: Costs -->
+<section class="slide" id="slide6">
+  <span class="slide-number">6 / 8</span>
+
+  <h2>Avantage <span class="gradient">coût</span></h2>
+
+  <div class="comparison-box">
+    <div class="comparison-item">
+      <div class="price old">200€</div>
+      <div class="label">Avocat / heure</div>
+      <div class="sublabel">Délai: jours • Heures bureau</div>
+    </div>
+    <div class="comparison-arrow">→</div>
+    <div class="comparison-item highlight">
+      <div class="price new">0.10€</div>
+      <div class="label">Juridique AI / analyse</div>
+      <div class="sublabel">30 secondes • 24h/24</div>
+    </div>
+  </div>
+
+  <div class="result-box">
+    <div class="big-number">2000x</div>
+    <p>moins cher • 1 heure avocat = 2000 analyses IA</p>
+  </div>
+</section>
+
+<!-- SLIDE 7: Roadmap -->
+<section class="slide" id="slide7">
+  <span class="slide-number">7 / 8</span>
+
+  <h2>Roadmap <span class="gradient">produit</span></h2>
+
+  <div class="timeline">
+    <div class="timeline-item done">
+      <h4><span class="badge">Fait</span></h4>
+      <ul>
+        <li>5 modules IA</li>
+        <li>5 juridictions EU</li>
+        <li>Auth Microsoft</li>
+        <li>CI/CD automatisé</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <h4><span class="badge blue">3-6 mois</span></h4>
+      <ul>
+        <li>Export PDF</li>
+        <li>Historique</li>
+        <li>+ Templates</li>
+        <li>Métriques</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <h4><span class="badge purple">6-12 mois</span></h4>
+      <ul>
+        <li>Multi-langue</li>
+        <li>API publique</li>
+        <li>Paiement</li>
+        <li>Collaboration</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <h4><span class="badge" style="background: rgba(245, 158, 11, 0.1); color: var(--warning);">12+ mois</span></h4>
+      <ul>
+        <li>App mobile</li>
+        <li>IA corpus FR</li>
+        <li>Marketplace</li>
+        <li>+ Pays</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="result-box" style="margin-top: 40px; padding: 32px;">
+    <p style="font-size: 28px;">Marché LegalTech Europe</p>
+    <div style="font-size: 36px; font-weight: 700; color: var(--primary); margin-top: 8px;">35 Mrd€ (2025) → 72 Mrd€ (2035)</div>
+  </div>
+</section>
+
+<!-- SLIDE 8: Demos -->
+<section class="slide" id="slide8">
+  <span class="slide-number">8 / 8</span>
+
+  <h2>Démos <span class="gradient">en direct</span></h2>
+
+  <div class="links-grid">
+    <a href="https://aoli-juridique-prod-frontend.azurewebsites.net" target="_blank" class="link-card">
+      <h3>▶️ Production</h3>
+      <p>Application complète • 5 modules • Auth Microsoft</p>
+      <div class="url">aoli-juridique-prod-frontend.azurewebsites.net</div>
+    </a>
+
+    <a href="https://aoli-juridique-dev-frontend.azurewebsites.net" target="_blank" class="link-card">
+      <h3>🔧 Développement</h3>
+      <p>Environnement de test des nouvelles fonctionnalités</p>
+      <div class="url">aoli-juridique-dev-frontend.azurewebsites.net</div>
+    </a>
+
+    <a href="https://juridiqueaiwww9381.z28.web.core.windows.net" target="_blank" class="link-card">
+      <h3>🌐 Site Vitrine</h3>
+      <p>Landing page • Présentation modules • Tarifs</p>
+      <div class="url">juridiqueaiwww9381.z28.web.core.windows.net</div>
+    </a>
+
+    <a href="https://github.com/Juridique-ai/aoli-juridique" target="_blank" class="link-card">
+      <h3>📦 GitHub</h3>
+      <p>Code source • CI/CD • Documentation technique</p>
+      <div class="url">github.com/Juridique-ai/aoli-juridique</div>
+    </a>
+  </div>
+
+  <div class="footer-note" style="margin-top: 48px;">
+    <div style="display: flex; justify-content: center; gap: 48px; margin-bottom: 20px; font-size: 18px;">
+      <span>✓ RGPD</span>
+      <span>✓ AI Act</span>
+      <span>✓ 100% EU</span>
+      <span>✓ CI/CD</span>
+    </div>
+    <p style="font-size: 28px;"><strong>Merci pour votre attention</strong></p>
+    <p style="font-size: 18px; margin-top: 8px;">Décembre 2025 • Juridique AI</p>
+  </div>
+</section>
+
+</body>
+</html>
