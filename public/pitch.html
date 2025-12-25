@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juridique AI - Pitch Investisseurs</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --secondary: #3b82f6;
+      --accent: #8b5cf6;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --surface-light: #1a1a1a;
+      --text: #ffffff;
+      --text-muted: #9ca3af;
+      --border: #262626;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Mobile-first slide */
+    .slide {
+      min-height: 100vh;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .slide-number {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Typography - Mobile first */
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      color: white;
+    }
+
+    .logo-name {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    /* Big stats */
+    .hero-stat {
+      text-align: center;
+      padding: 32px 20px;
+      background: var(--surface);
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero-stat-value {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .hero-stat-label {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    /* Problem cards */
+    .problem-card {
+      background: var(--surface);
+      border-left: 4px solid var(--danger);
+      padding: 20px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 16px;
+    }
+
+    .problem-card .icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .problem-card h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .problem-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* Solution cards */
+    .solution-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.05));
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 24px;
+      border-radius: 16px;
+      margin-bottom: 16px;
+    }
+
+    .solution-card .icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .solution-card h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .solution-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* Market opportunity */
+    .market-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .market-value {
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .market-label {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .market-growth {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Comparison */
+    .compare-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .compare-card {
+      padding: 24px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .compare-card.old {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .compare-card.new {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.1));
+      border: 2px solid var(--primary);
+    }
+
+    .compare-price {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .compare-card.old .compare-price {
+      color: var(--danger);
+      text-decoration: line-through;
+    }
+
+    .compare-card.new .compare-price {
+      color: var(--primary);
+    }
+
+    .compare-label {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .compare-details {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .vs-badge {
+      background: var(--surface-light);
+      color: var(--text-muted);
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      align-self: center;
+    }
+
+    /* Features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .feature-content h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .feature-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Traction metrics */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .metric-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .metric-label {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Compliance badges */
+    .badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .compliance-badge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .compliance-badge .check {
+      color: var(--primary);
+    }
+
+    /* CTA section */
+    .cta-box {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .cta-box h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: white;
+    }
+
+    .cta-box p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: var(--bg);
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 24px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid var(--bg);
+    }
+
+    .timeline-item.done::before {
+      background: var(--primary);
+    }
+
+    .timeline-item.current::before {
+      background: var(--secondary);
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+    }
+
+    .timeline-item.future::before {
+      background: var(--surface-light);
+      border-color: var(--border);
+    }
+
+    .timeline-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .timeline-badge.done {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--primary);
+    }
+
+    .timeline-badge.current {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--secondary);
+    }
+
+    .timeline-badge.future {
+      background: var(--surface-light);
+      color: var(--text-muted);
+    }
+
+    .timeline-content h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .timeline-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Contact cards */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .contact-card:hover {
+      border-color: var(--primary);
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--surface-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .contact-info h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .contact-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      background: var(--surface);
+      padding: 8px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .nav a {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .nav a:hover, .nav a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
+
+    /* Footer text */
+    .footer-text {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 32px;
+    }
+
+    /* Tablet styles */
+    @media (min-width: 640px) {
+      .slide { padding: 40px 48px; }
+      h1 { font-size: 48px; }
+      h2 { font-size: 36px; }
+      .subtitle { font-size: 20px; }
+      .hero-stat-value { font-size: 72px; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .compare-section { flex-direction: row; align-items: stretch; }
+      .compare-card { flex: 1; }
+      .vs-badge { align-self: center; }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Desktop styles */
+    @media (min-width: 1024px) {
+      .slide {
+        padding: 60px 80px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      h1 { font-size: 64px; }
+      h2 { font-size: 48px; }
+      h3 { font-size: 28px; }
+      .subtitle { font-size: 24px; max-width: 700px; }
+      .hero-stat-value { font-size: 96px; }
+      .hero-stat-label { font-size: 20px; }
+      .features-grid { grid-template-columns: repeat(3, 1fr); }
+      .metrics-grid { grid-template-columns: repeat(4, 1fr); }
+      .problem-card, .solution-card { padding: 28px; }
+      .problem-card h4, .solution-card h4 { font-size: 22px; }
+      .problem-card p, .solution-card p { font-size: 17px; }
+      .market-value { font-size: 56px; }
+      .compare-price { font-size: 64px; }
+      .timeline { padding-left: 32px; }
+      .nav {
+        bottom: 32px;
+        padding: 10px;
+      }
+      .nav a {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+      }
+    }
+
+    /* Large desktop */
+    @media (min-width: 1400px) {
+      h1 { font-size: 80px; }
+      h2 { font-size: 56px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <a href="#slide1">1</a>
+  <a href="#slide2">2</a>
+  <a href="#slide3">3</a>
+  <a href="#slide4">4</a>
+  <a href="#slide5">5</a>
+  <a href="#slide6">6</a>
+  <a href="#slide7">7</a>
+  <a href="#slide8">8</a>
+</nav>
+
+<!-- SLIDE 1: Hook -->
+<section class="slide" id="slide1">
+  <span class="slide-number">01</span>
+
+  <div class="logo">
+    <div class="logo-mark">JA</div>
+    <span class="logo-name">Juridique AI</span>
+  </div>
+
+  <h1>Le droit accessible à <span class="gradient-text">tous</span></h1>
+
+  <p class="subtitle">
+    L'IA qui démocratise l'accès au conseil juridique en Europe.
+    2000x moins cher qu'un avocat. Instantané. 100% conforme.
+  </p>
+
+  <div class="hero-stat">
+    <div class="hero-stat-value gradient-text">72 Mrd€</div>
+    <div class="hero-stat-label">Marché LegalTech Europe d'ici 2035</div>
+  </div>
+
+  <div class="badges-row">
+    <span class="compliance-badge"><span class="check">✓</span> RGPD</span>
+    <span class="compliance-badge"><span class="check">✓</span> AI Act</span>
+    <span class="compliance-badge"><span class="check">✓</span> 100% EU</span>
+  </div>
+</section>
+
+<!-- SLIDE 2: Problem -->
+<section class="slide" id="slide2">
+  <span class="slide-number">02</span>
+
+  <h2>Le problème</h2>
+
+  <p class="subtitle">
+    Le conseil juridique est inaccessible pour 90% des PME et particuliers en Europe.
+  </p>
+
+  <div class="problem-card">
+    <div class="icon">💸</div>
+    <h4>Trop cher</h4>
+    <p>150-400€/heure pour un avocat. Budget prohibitif pour les PME et particuliers.</p>
+  </div>
+
+  <div class="problem-card">
+    <div class="icon">⏳</div>
+    <h4>Trop lent</h4>
+    <p>Délais de plusieurs jours à semaines. Incompatible avec le rythme des affaires.</p>
+  </div>
+
+  <div class="problem-card">
+    <div class="icon">🌍</div>
+    <h4>Trop complexe</h4>
+    <p>5 juridictions différentes en Europe. Impossible de s'y retrouver seul.</p>
+  </div>
+
+  <div class="problem-card">
+    <div class="icon">🔒</div>
+    <h4>Pas de confiance</h4>
+    <p>Les solutions US stockent vos données. Risque Cloud Act et RGPD.</p>
+  </div>
+</section>
+
+<!-- SLIDE 3: Solution -->
+<section class="slide" id="slide3">
+  <span class="slide-number">03</span>
+
+  <h2>Notre solution</h2>
+
+  <p class="subtitle">
+    Une plateforme IA qui fournit une assistance juridique instantanée, abordable et conforme.
+  </p>
+
+  <div class="solution-card">
+    <div class="icon">📄</div>
+    <h4>Analyse de contrats</h4>
+    <p>Détection des clauses à risque, suggestions d'amélioration, scoring de risque.</p>
+  </div>
+
+  <div class="solution-card">
+    <div class="icon">🏢</div>
+    <h4>Création d'entreprise</h4>
+    <p>Guide complet par juridiction, génération des statuts, checklist légale.</p>
+  </div>
+
+  <div class="solution-card">
+    <div class="icon">💬</div>
+    <h4>Conseils juridiques</h4>
+    <p>Réponses instantanées à vos questions, avec sources et références légales.</p>
+  </div>
+
+  <div class="solution-card">
+    <div class="icon">✉️</div>
+    <h4>Documents & Correspondance</h4>
+    <p>Génération de mises en demeure, actes de procédure, courriers formels.</p>
+  </div>
+</section>
+
+<!-- SLIDE 4: Value Proposition -->
+<section class="slide" id="slide4">
+  <span class="slide-number">04</span>
+
+  <h2>L'avantage <span class="gradient-text">coût</span></h2>
+
+  <div class="compare-section">
+    <div class="compare-card old">
+      <div class="compare-price">200€</div>
+      <div class="compare-label">Avocat traditionnel</div>
+      <div class="compare-details">Par heure • Délai: jours<br>Disponible: heures bureau</div>
+    </div>
+
+    <span class="vs-badge">VS</span>
+
+    <div class="compare-card new">
+      <div class="compare-price">0.10€</div>
+      <div class="compare-label">Juridique AI</div>
+      <div class="compare-details">Par analyse • Délai: 30 sec<br>Disponible: 24h/24, 7j/7</div>
+    </div>
+  </div>
+
+  <div class="hero-stat">
+    <div class="hero-stat-value gradient-text">2000x</div>
+    <div class="hero-stat-label">moins cher qu'un avocat traditionnel</div>
+  </div>
+
+  <p class="footer-text">
+    1 heure d'avocat = 2000 analyses IA
+  </p>
+</section>
+
+<!-- SLIDE 5: Market -->
+<section class="slide" id="slide5">
+  <span class="slide-number">05</span>
+
+  <h2>L'opportunité</h2>
+
+  <p class="subtitle">
+    Le marché LegalTech européen explose. Nous ciblons les PME et indépendants.
+  </p>
+
+  <div class="market-card">
+    <div class="market-value gradient-text">35 Mrd€</div>
+    <div class="market-label">Marché LegalTech EU 2025</div>
+    <span class="market-growth">+15% / an</span>
+  </div>
+
+  <div class="market-card">
+    <div class="market-value gradient-text">72 Mrd€</div>
+    <div class="market-label">Projection 2035</div>
+    <span class="market-growth">×2 en 10 ans</span>
+  </div>
+
+  <div class="features-grid" style="margin-top: 24px;">
+    <div class="feature-card">
+      <div class="feature-icon">🇫🇷</div>
+      <div class="feature-content">
+        <h4>France</h4>
+        <p>4M de PME</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🇧🇪</div>
+      <div class="feature-content">
+        <h4>Belgique</h4>
+        <p>1M de PME</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🇱🇺</div>
+      <div class="feature-content">
+        <h4>Luxembourg</h4>
+        <p>40K entreprises</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🇩🇪</div>
+      <div class="feature-content">
+        <h4>Allemagne</h4>
+        <p>3.5M de PME</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🇨🇭</div>
+      <div class="feature-content">
+        <h4>Suisse</h4>
+        <p>600K entreprises</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6: Traction & Product -->
+<section class="slide" id="slide6">
+  <span class="slide-number">06</span>
+
+  <h2>Où nous en sommes</h2>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-value">5</div>
+      <div class="metric-label">Modules IA</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">5</div>
+      <div class="metric-label">Juridictions</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">28€</div>
+      <div class="metric-label">Coût/mois</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">100%</div>
+      <div class="metric-label">Conforme EU</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>Avantages compétitifs</h3>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🇪🇺</div>
+      <div class="feature-content">
+        <h4>100% Européen</h4>
+        <p>Données hébergées en Suède. Pas de Cloud Act.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔐</div>
+      <div class="feature-content">
+        <h4>Zero Data</h4>
+        <p>Aucune donnée stockée sur nos serveurs.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-content">
+        <h4>Temps réel</h4>
+        <p>Réponses en streaming, 30 sec max.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7: Roadmap -->
+<section class="slide" id="slide7">
+  <span class="slide-number">07</span>
+
+  <h2>Roadmap</h2>
+
+  <div class="timeline">
+    <div class="timeline-item done">
+      <span class="timeline-badge done">Livré ✓</span>
+      <div class="timeline-content">
+        <h4>MVP Complet</h4>
+        <p>5 modules IA, 5 juridictions, auth Microsoft, CI/CD, site vitrine</p>
+      </div>
+    </div>
+
+    <div class="timeline-item current">
+      <span class="timeline-badge current">En cours</span>
+      <div class="timeline-content">
+        <h4>Phase commerciale</h4>
+        <p>Premiers clients pilotes, export PDF, métriques utilisateurs</p>
+      </div>
+    </div>
+
+    <div class="timeline-item future">
+      <span class="timeline-badge future">6-12 mois</span>
+      <div class="timeline-content">
+        <h4>Scale</h4>
+        <p>API publique, intégration paiement, multi-langue</p>
+      </div>
+    </div>
+
+    <div class="timeline-item future">
+      <span class="timeline-badge future">12+ mois</span>
+      <div class="timeline-content">
+        <h4>Expansion</h4>
+        <p>App mobile, IA spécialisée corpus FR, nouvelles juridictions</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 8: CTA -->
+<section class="slide" id="slide8">
+  <span class="slide-number">08</span>
+
+  <h2>Rejoignez l'aventure</h2>
+
+  <p class="subtitle">
+    Nous révolutionnons l'accès au droit en Europe. Soyez parmi les premiers investisseurs.
+  </p>
+
+  <div class="contact-grid">
+    <a href="https://aoli-juridique-prod-frontend.azurewebsites.net" target="_blank" class="contact-card">
+      <div class="contact-icon">🚀</div>
+      <div class="contact-info">
+        <h4>Voir la démo</h4>
+        <p>Application live en production</p>
+      </div>
+    </a>
+
+    <a href="https://juridiqueaiwww9381.z28.web.core.windows.net" target="_blank" class="contact-card">
+      <div class="contact-icon">🌐</div>
+      <div class="contact-info">
+        <h4>Site vitrine</h4>
+        <p>Découvrir les modules</p>
+      </div>
+    </a>
+
+    <a href="https://github.com/Juridique-ai" target="_blank" class="contact-card">
+      <div class="contact-icon">📦</div>
+      <div class="contact-info">
+        <h4>GitHub</h4>
+        <p>Code source & documentation</p>
+      </div>
+    </a>
+
+    <a href="/presentation.html" class="contact-card">
+      <div class="contact-icon">📊</div>
+      <div class="contact-info">
+        <h4>Présentation technique</h4>
+        <p>Architecture & conformité</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="cta-box">
+    <h3>Prêt à investir ?</h3>
+    <p>Discutons de comment Juridique AI peut transformer le marché juridique européen.</p>
+    <a href="mailto:contact@juridique.ai" class="cta-button">Nous contacter</a>
+  </div>
+
+  <p class="footer-text" style="margin-top: 40px;">
+    Décembre 2025 • Juridique AI<br>
+    <small>RGPD ✓ AI Act ✓ 100% Hébergé en Europe ✓</small>
+  </p>
+</section>
+
+</body>
+</html>
