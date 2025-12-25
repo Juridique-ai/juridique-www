@@ -9,392 +9,444 @@
 
     :root {
       --primary: #10b981;
-      --primary-dark: #059669;
+      --primary-glow: rgba(16, 185, 129, 0.4);
       --secondary: #3b82f6;
-      --accent: #8b5cf6;
-      --warning: #f59e0b;
+      --accent: #f59e0b;
       --danger: #ef4444;
-      --bg: #0a0a0a;
-      --surface: #111111;
-      --surface-light: #1a1a1a;
+      --bg: #000000;
+      --surface: #0a0a0a;
+      --surface-light: #141414;
       --text: #ffffff;
-      --text-muted: #9ca3af;
-      --border: #262626;
+      --text-muted: #888888;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.4;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    /* Mobile-first slide */
+    /* SLIDE SYSTEM */
     .slide {
       min-height: 100vh;
-      padding: 24px 20px;
+      padding: 32px 24px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      text-align: center;
       position: relative;
     }
 
     .slide-number {
       position: absolute;
-      top: 16px;
-      right: 20px;
+      top: 20px;
+      right: 24px;
       font-size: 14px;
       color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    /* Typography - Mobile first */
-    h1 {
-      font-size: 32px;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-
-    h2 {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 24px;
-      line-height: 1.2;
-    }
-
-    h3 {
-      font-size: 20px;
       font-weight: 600;
-      margin-bottom: 12px;
+      letter-spacing: 2px;
     }
 
-    .gradient-text {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    /* TYPOGRAPHY - BOLD & SHOCKING */
+    .mega-headline {
+      font-size: clamp(42px, 12vw, 120px);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .headline {
+      font-size: clamp(32px, 8vw, 72px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .sub-headline {
+      font-size: clamp(18px, 4vw, 28px);
+      font-weight: 400;
+      color: var(--text-muted);
+      max-width: 700px;
+      line-height: 1.5;
+    }
+
+    /* GRADIENT & GLOW EFFECTS */
+    .gradient {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .subtitle {
-      font-size: 18px;
+    .glow {
+      text-shadow: 0 0 60px var(--primary-glow);
+    }
+
+    .danger-text {
+      color: var(--danger);
+    }
+
+    .strike {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    /* MEGA STAT - THE HOOK */
+    .mega-stat {
+      margin: 40px 0;
+    }
+
+    .mega-stat-value {
+      font-size: clamp(80px, 20vw, 200px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
+
+    .mega-stat-label {
+      font-size: clamp(16px, 3vw, 24px);
       color: var(--text-muted);
-      margin-bottom: 32px;
-      line-height: 1.6;
+      margin-top: 16px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
     }
 
-    /* Logo */
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-
-    .logo-mark {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 18px;
-      color: white;
-    }
-
-    .logo-name {
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    /* Big stats */
-    .hero-stat {
-      text-align: center;
-      padding: 32px 20px;
-      background: var(--surface);
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
-
-    .hero-stat-value {
-      font-size: 56px;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .hero-stat-label {
-      font-size: 16px;
-      color: var(--text-muted);
-    }
-
-    /* Problem cards */
-    .problem-card {
-      background: var(--surface);
-      border-left: 4px solid var(--danger);
-      padding: 20px;
-      border-radius: 0 12px 12px 0;
-      margin-bottom: 16px;
-    }
-
-    .problem-card .icon {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    .problem-card h4 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .problem-card p {
-      font-size: 15px;
-      color: var(--text-muted);
-    }
-
-    /* Solution cards */
-    .solution-card {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.05));
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 24px;
-      border-radius: 16px;
-      margin-bottom: 16px;
-    }
-
-    .solution-card .icon {
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
-
-    .solution-card h4 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--primary);
-    }
-
-    .solution-card p {
-      font-size: 15px;
-      color: var(--text-muted);
-    }
-
-    /* Market opportunity */
-    .market-card {
-      background: var(--surface);
-      border-radius: 16px;
-      padding: 24px;
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    .market-value {
-      font-size: 40px;
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
-
-    .market-label {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .market-growth {
-      display: inline-block;
-      background: rgba(16, 185, 129, 0.15);
-      color: var(--primary);
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    /* Comparison */
-    .compare-section {
+    /* COMPARISON - VISCERAL */
+    .vs-container {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin-bottom: 24px;
+      gap: 20px;
+      width: 100%;
+      max-width: 600px;
+      margin: 32px 0;
     }
 
-    .compare-card {
-      padding: 24px;
-      border-radius: 16px;
+    .vs-item {
+      padding: 32px;
+      border-radius: 20px;
       text-align: center;
     }
 
-    .compare-card.old {
+    .vs-item.bad {
       background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.3);
+      border: 2px solid rgba(239, 68, 68, 0.3);
     }
 
-    .compare-card.new {
+    .vs-item.good {
       background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.1));
       border: 2px solid var(--primary);
+      box-shadow: 0 0 60px var(--primary-glow);
     }
 
-    .compare-price {
-      font-size: 48px;
-      font-weight: 800;
-      margin-bottom: 4px;
+    .vs-price {
+      font-size: clamp(48px, 12vw, 80px);
+      font-weight: 900;
+      line-height: 1;
     }
 
-    .compare-card.old .compare-price {
+    .vs-item.bad .vs-price {
       color: var(--danger);
       text-decoration: line-through;
     }
 
-    .compare-card.new .compare-price {
+    .vs-item.good .vs-price {
       color: var(--primary);
     }
 
-    .compare-label {
+    .vs-label {
+      font-size: 18px;
+      margin-top: 8px;
+      color: var(--text-muted);
+    }
+
+    .vs-divider {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-muted);
+      padding: 8px 0;
+    }
+
+    /* PAIN POINTS - EMOTIONAL */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 800px;
+      margin: 32px 0;
+      text-align: left;
+    }
+
+    .pain-card {
+      background: var(--surface);
+      border-left: 4px solid var(--danger);
+      padding: 24px;
+      border-radius: 0 16px 16px 0;
+    }
+
+    .pain-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .pain-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .pain-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .pain-stat {
+      display: inline-block;
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--danger);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    /* SOLUTION CARDS */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      width: 100%;
+      max-width: 900px;
+      margin: 32px 0;
+    }
+
+    .solution-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), transparent);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      padding: 28px;
+      border-radius: 20px;
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+
+    .solution-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    .solution-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .solution-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .solution-desc {
       font-size: 16px;
       color: var(--text-muted);
     }
 
-    .compare-details {
-      font-size: 14px;
+    /* MARKET - FOMO */
+    .market-explosion {
+      position: relative;
+      padding: 48px 32px;
+      background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+      border-radius: 32px;
+      margin: 32px 0;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .market-value {
+      font-size: clamp(60px, 15vw, 120px);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .market-label {
+      font-size: 18px;
       color: var(--text-muted);
       margin-top: 12px;
     }
 
-    .vs-badge {
-      background: var(--surface-light);
-      color: var(--text-muted);
+    .market-growth {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
       padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 600;
-      align-self: center;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 20px;
+      animation: pulse 2s infinite;
     }
 
-    /* Features grid */
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
 
-    .feature-card {
+    /* COUNTRY FLAGS */
+    .countries {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 32px;
+    }
+
+    .country {
       background: var(--surface);
+      padding: 16px 24px;
       border-radius: 16px;
-      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .country-flag {
+      font-size: 32px;
+    }
+
+    /* TRACTION PROOF */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      width: 100%;
+      max-width: 500px;
+      margin: 32px 0;
+    }
+
+    .proof-card {
+      background: var(--surface);
+      padding: 24px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .proof-value {
+      font-size: clamp(32px, 8vw, 48px);
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .proof-label {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* COMPETITIVE MOATS */
+    .moat-list {
+      text-align: left;
+      width: 100%;
+      max-width: 600px;
+      margin: 32px 0;
+    }
+
+    .moat-item {
       display: flex;
       align-items: flex-start;
       gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: 12px;
+    .moat-item:last-child {
+      border-bottom: none;
+    }
+
+    .moat-check {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
       flex-shrink: 0;
+      font-size: 18px;
     }
 
-    .feature-content h4 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .feature-content p {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    /* Traction metrics */
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .metric-card {
-      background: var(--surface);
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .metric-value {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .metric-label {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* Compliance badges */
-    .badges-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-bottom: 24px;
-    }
-
-    .compliance-badge {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 10px 16px;
-      border-radius: 100px;
-      font-size: 14px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .compliance-badge .check {
-      color: var(--primary);
-    }
-
-    /* CTA section */
-    .cta-box {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: 20px;
-      padding: 32px 24px;
-      text-align: center;
-      margin-top: 24px;
-    }
-
-    .cta-box h3 {
-      font-size: 24px;
+    .moat-content h4 {
+      font-size: 20px;
       font-weight: 700;
-      margin-bottom: 12px;
-      color: white;
+      margin-bottom: 4px;
     }
 
-    .cta-box p {
+    .moat-content p {
       font-size: 16px;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 20px;
+      color: var(--text-muted);
+    }
+
+    /* CTA - URGENCY */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 48px 32px;
+      border-radius: 32px;
+      width: 100%;
+      max-width: 600px;
+      margin: 32px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      animation: shine 3s linear infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .cta-title {
+      font-size: clamp(28px, 6vw, 40px);
+      font-weight: 800;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .cta-desc {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 28px;
+      position: relative;
     }
 
     .cta-button {
       display: inline-block;
       background: white;
       color: var(--bg);
-      padding: 14px 32px;
+      padding: 18px 40px;
       border-radius: 100px;
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 700;
       text-decoration: none;
+      position: relative;
       transition: transform 0.2s;
     }
 
@@ -402,152 +454,50 @@
       transform: scale(1.05);
     }
 
-    /* Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 24px;
+    /* SOCIAL PROOF BADGES */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 24px 0;
     }
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    .badge {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 20px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .timeline-item {
-      position: relative;
-      padding-bottom: 24px;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -28px;
-      top: 6px;
-      width: 12px;
-      height: 12px;
-      background: var(--primary);
-      border-radius: 50%;
-      border: 3px solid var(--bg);
-    }
-
-    .timeline-item.done::before {
-      background: var(--primary);
-    }
-
-    .timeline-item.current::before {
-      background: var(--secondary);
-      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
-    }
-
-    .timeline-item.future::before {
-      background: var(--surface-light);
-      border-color: var(--border);
-    }
-
-    .timeline-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .timeline-badge.done {
-      background: rgba(16, 185, 129, 0.15);
+    .badge-check {
       color: var(--primary);
     }
 
-    .timeline-badge.current {
-      background: rgba(59, 130, 246, 0.15);
-      color: var(--secondary);
-    }
-
-    .timeline-badge.future {
-      background: var(--surface-light);
-      color: var(--text-muted);
-    }
-
-    .timeline-content h4 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .timeline-content p {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    /* Contact cards */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    .contact-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      transition: border-color 0.2s;
-    }
-
-    .contact-card:hover {
-      border-color: var(--primary);
-    }
-
-    .contact-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--surface-light);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-    }
-
-    .contact-info h4 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .contact-info p {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* Navigation */
+    /* NAVIGATION */
     .nav {
       position: fixed;
-      bottom: 16px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 8px;
-      background: var(--surface);
+      gap: 6px;
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(10px);
       padding: 8px;
       border-radius: 100px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255,255,255,0.1);
       z-index: 100;
     }
 
     .nav a {
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -555,7 +505,7 @@
       color: var(--text-muted);
       text-decoration: none;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       transition: all 0.2s;
     }
 
@@ -564,77 +514,93 @@
       color: white;
     }
 
-    /* Divider */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 32px 0;
-    }
-
-    /* Footer text */
-    .footer-text {
-      text-align: center;
+    /* QUOTE */
+    .quote {
+      font-size: clamp(24px, 5vw, 40px);
+      font-weight: 300;
+      font-style: italic;
       color: var(--text-muted);
+      max-width: 800px;
+      line-height: 1.4;
+      margin: 24px 0;
+    }
+
+    .quote-author {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-top: 16px;
+      font-style: normal;
+    }
+
+    /* LINKS */
+    .links-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      width: 100%;
+      max-width: 500px;
+      margin-top: 24px;
+    }
+
+    .link-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 20px 24px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.2s;
+    }
+
+    .link-card:hover {
+      border-color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .link-icon {
+      font-size: 28px;
+    }
+
+    .link-text {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .link-arrow {
+      margin-left: auto;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+    .footer-text {
       font-size: 14px;
-      margin-top: 32px;
+      color: var(--text-muted);
+      margin-top: 40px;
     }
 
-    /* Tablet styles */
+    /* RESPONSIVE */
     @media (min-width: 640px) {
-      .slide { padding: 40px 48px; }
-      h1 { font-size: 48px; }
-      h2 { font-size: 36px; }
-      .subtitle { font-size: 20px; }
-      .hero-stat-value { font-size: 72px; }
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .compare-section { flex-direction: row; align-items: stretch; }
-      .compare-card { flex: 1; }
-      .vs-badge { align-self: center; }
-      .contact-grid { grid-template-columns: repeat(2, 1fr); }
+      .slide { padding: 48px 40px; }
+      .pain-grid { grid-template-columns: repeat(2, 1fr); }
+      .solution-grid { grid-template-columns: repeat(2, 1fr); }
+      .vs-container { flex-direction: row; align-items: center; }
+      .vs-divider { padding: 0 16px; }
+      .links-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* Desktop styles */
     @media (min-width: 1024px) {
-      .slide {
-        padding: 60px 80px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      h1 { font-size: 64px; }
-      h2 { font-size: 48px; }
-      h3 { font-size: 28px; }
-      .subtitle { font-size: 24px; max-width: 700px; }
-      .hero-stat-value { font-size: 96px; }
-      .hero-stat-label { font-size: 20px; }
-      .features-grid { grid-template-columns: repeat(3, 1fr); }
-      .metrics-grid { grid-template-columns: repeat(4, 1fr); }
-      .problem-card, .solution-card { padding: 28px; }
-      .problem-card h4, .solution-card h4 { font-size: 22px; }
-      .problem-card p, .solution-card p { font-size: 17px; }
-      .market-value { font-size: 56px; }
-      .compare-price { font-size: 64px; }
-      .timeline { padding-left: 32px; }
-      .nav {
-        bottom: 32px;
-        padding: 10px;
-      }
-      .nav a {
-        width: 44px;
-        height: 44px;
-        font-size: 16px;
-      }
-    }
-
-    /* Large desktop */
-    @media (min-width: 1400px) {
-      h1 { font-size: 80px; }
-      h2 { font-size: 56px; }
+      .slide { padding: 60px 80px; }
+      .solution-grid { grid-template-columns: repeat(4, 1fr); }
+      .proof-grid { grid-template-columns: repeat(4, 1fr); max-width: 800px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- NAVIGATION -->
 <nav class="nav">
   <a href="#slide1">1</a>
   <a href="#slide2">2</a>
@@ -646,345 +612,306 @@
   <a href="#slide8">8</a>
 </nav>
 
-<!-- SLIDE 1: Hook -->
+<!-- SLIDE 1: THE HOOK - Shocking stat that creates cognitive dissonance -->
 <section class="slide" id="slide1">
-  <span class="slide-number">01</span>
+  <span class="slide-number">01 / 08</span>
 
-  <div class="logo">
-    <div class="logo-mark">JA</div>
-    <span class="logo-name">Juridique AI</span>
-  </div>
-
-  <h1>Le droit accessible à <span class="gradient-text">tous</span></h1>
-
-  <p class="subtitle">
-    L'IA qui démocratise l'accès au conseil juridique en Europe.
-    2000x moins cher qu'un avocat. Instantané. 100% conforme.
+  <p class="sub-headline" style="margin-bottom: 24px; text-transform: uppercase; letter-spacing: 3px; font-size: 14px;">
+    Le problème que personne n'ose dire
   </p>
 
-  <div class="hero-stat">
-    <div class="hero-stat-value gradient-text">72 Mrd€</div>
-    <div class="hero-stat-label">Marché LegalTech Europe d'ici 2035</div>
-  </div>
+  <h1 class="mega-headline">
+    <span class="danger-text">90%</span> des PME<br>
+    <span class="gradient glow">n'ont pas d'avocat</span>
+  </h1>
 
-  <div class="badges-row">
-    <span class="compliance-badge"><span class="check">✓</span> RGPD</span>
-    <span class="compliance-badge"><span class="check">✓</span> AI Act</span>
-    <span class="compliance-badge"><span class="check">✓</span> 100% EU</span>
+  <p class="sub-headline">
+    Pas parce qu'elles n'en ont pas besoin.<br>
+    <strong style="color: white;">Parce qu'elles n'en ont pas les moyens.</strong>
+  </p>
+
+  <div class="mega-stat">
+    <div class="mega-stat-value gradient glow">72 Mrd€</div>
+    <div class="mega-stat-label">Le marché qu'on va capturer</div>
   </div>
 </section>
 
-<!-- SLIDE 2: Problem -->
+<!-- SLIDE 2: THE PAIN - Agitate, make them FEEL it -->
 <section class="slide" id="slide2">
-  <span class="slide-number">02</span>
+  <span class="slide-number">02 / 08</span>
 
-  <h2>Le problème</h2>
+  <h2 class="headline">
+    Le droit est un <span class="danger-text">luxe</span>.<br>
+    Ça doit changer.
+  </h2>
 
-  <p class="subtitle">
-    Le conseil juridique est inaccessible pour 90% des PME et particuliers en Europe.
-  </p>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-icon">💸</div>
+      <div class="pain-title">200-400€ / heure</div>
+      <div class="pain-desc">Le prix d'un avocat. Une PME abandonne 3 litiges sur 4 faute de budget.</div>
+      <span class="pain-stat">Budget moyen PME: 0€/an</span>
+    </div>
 
-  <div class="problem-card">
-    <div class="icon">💸</div>
-    <h4>Trop cher</h4>
-    <p>150-400€/heure pour un avocat. Budget prohibitif pour les PME et particuliers.</p>
-  </div>
+    <div class="pain-card">
+      <div class="pain-icon">⏰</div>
+      <div class="pain-title">2-4 semaines de délai</div>
+      <div class="pain-desc">Pour une simple question juridique. Le business n'attend pas.</div>
+      <span class="pain-stat">Perte estimée: 5K€/retard</span>
+    </div>
 
-  <div class="problem-card">
-    <div class="icon">⏳</div>
-    <h4>Trop lent</h4>
-    <p>Délais de plusieurs jours à semaines. Incompatible avec le rythme des affaires.</p>
-  </div>
+    <div class="pain-card">
+      <div class="pain-icon">🇺🇸</div>
+      <div class="pain-title">Vos données aux USA</div>
+      <div class="pain-desc">Les solutions US sont soumises au Cloud Act. Vos secrets chez eux.</div>
+      <span class="pain-stat">100% des solutions IA US</span>
+    </div>
 
-  <div class="problem-card">
-    <div class="icon">🌍</div>
-    <h4>Trop complexe</h4>
-    <p>5 juridictions différentes en Europe. Impossible de s'y retrouver seul.</p>
-  </div>
-
-  <div class="problem-card">
-    <div class="icon">🔒</div>
-    <h4>Pas de confiance</h4>
-    <p>Les solutions US stockent vos données. Risque Cloud Act et RGPD.</p>
+    <div class="pain-card">
+      <div class="pain-icon">🤯</div>
+      <div class="pain-title">5 juridictions, 0 solution</div>
+      <div class="pain-desc">France, Belgique, Allemagne, Suisse, Luxembourg. Aucune IA ne couvre tout.</div>
+      <span class="pain-stat">Fragmenté = ignoré</span>
+    </div>
   </div>
 </section>
 
-<!-- SLIDE 3: Solution -->
+<!-- SLIDE 3: THE SOLUTION - One sentence, visceral -->
 <section class="slide" id="slide3">
-  <span class="slide-number">03</span>
+  <span class="slide-number">03 / 08</span>
 
-  <h2>Notre solution</h2>
+  <h2 class="headline">
+    <span class="strike">200€</span> → <span class="gradient glow">0.10€</span>
+  </h2>
 
-  <p class="subtitle">
-    Une plateforme IA qui fournit une assistance juridique instantanée, abordable et conforme.
+  <p class="sub-headline" style="margin-bottom: 40px;">
+    Le même conseil juridique.<br>
+    <strong style="color: white;">2000 fois moins cher. En 30 secondes.</strong>
   </p>
 
-  <div class="solution-card">
-    <div class="icon">📄</div>
-    <h4>Analyse de contrats</h4>
-    <p>Détection des clauses à risque, suggestions d'amélioration, scoring de risque.</p>
+  <div class="vs-container">
+    <div class="vs-item bad">
+      <div class="vs-price">200€</div>
+      <div class="vs-label">Avocat traditionnel</div>
+    </div>
+    <span class="vs-divider">→</span>
+    <div class="vs-item good">
+      <div class="vs-price">0.10€</div>
+      <div class="vs-label">Juridique AI</div>
+    </div>
   </div>
 
-  <div class="solution-card">
-    <div class="icon">🏢</div>
-    <h4>Création d'entreprise</h4>
-    <p>Guide complet par juridiction, génération des statuts, checklist légale.</p>
-  </div>
-
-  <div class="solution-card">
-    <div class="icon">💬</div>
-    <h4>Conseils juridiques</h4>
-    <p>Réponses instantanées à vos questions, avec sources et références légales.</p>
-  </div>
-
-  <div class="solution-card">
-    <div class="icon">✉️</div>
-    <h4>Documents & Correspondance</h4>
-    <p>Génération de mises en demeure, actes de procédure, courriers formels.</p>
+  <div class="badge-row">
+    <span class="badge"><span class="badge-check">✓</span> Instantané</span>
+    <span class="badge"><span class="badge-check">✓</span> 24h/24</span>
+    <span class="badge"><span class="badge-check">✓</span> Multi-juridiction</span>
+    <span class="badge"><span class="badge-check">✓</span> Zero Data</span>
   </div>
 </section>
 
-<!-- SLIDE 4: Value Proposition -->
+<!-- SLIDE 4: WHAT WE DO - Visual & simple -->
 <section class="slide" id="slide4">
-  <span class="slide-number">04</span>
+  <span class="slide-number">04 / 08</span>
 
-  <h2>L'avantage <span class="gradient-text">coût</span></h2>
+  <h2 class="headline">
+    4 modules.<br>
+    <span class="gradient">100% du besoin PME.</span>
+  </h2>
 
-  <div class="compare-section">
-    <div class="compare-card old">
-      <div class="compare-price">200€</div>
-      <div class="compare-label">Avocat traditionnel</div>
-      <div class="compare-details">Par heure • Délai: jours<br>Disponible: heures bureau</div>
+  <div class="solution-grid">
+    <div class="solution-card">
+      <div class="solution-icon">📄</div>
+      <div class="solution-title">Contrats</div>
+      <div class="solution-desc">Analyse de risques, clauses abusives, scoring juridique</div>
     </div>
 
-    <span class="vs-badge">VS</span>
+    <div class="solution-card">
+      <div class="solution-icon">🏢</div>
+      <div class="solution-title">Création</div>
+      <div class="solution-desc">Statuts, checklist légale, guide par juridiction</div>
+    </div>
 
-    <div class="compare-card new">
-      <div class="compare-price">0.10€</div>
-      <div class="compare-label">Juridique AI</div>
-      <div class="compare-details">Par analyse • Délai: 30 sec<br>Disponible: 24h/24, 7j/7</div>
+    <div class="solution-card">
+      <div class="solution-icon">💬</div>
+      <div class="solution-title">Conseil</div>
+      <div class="solution-desc">Réponses instantanées avec sources légales</div>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-icon">✉️</div>
+      <div class="solution-title">Documents</div>
+      <div class="solution-desc">Mises en demeure, courriers, actes</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5: MARKET - FOMO, it's happening NOW -->
+<section class="slide" id="slide5">
+  <span class="slide-number">05 / 08</span>
+
+  <p class="sub-headline" style="margin-bottom: 16px; text-transform: uppercase; letter-spacing: 3px; font-size: 14px;">
+    Le train passe maintenant
+  </p>
+
+  <h2 class="headline">
+    LegalTech Europe<br>
+    <span class="gradient glow">explose.</span>
+  </h2>
+
+  <div class="market-explosion">
+    <div class="market-value gradient">72 Mrd€</div>
+    <div class="market-label">Marché 2035</div>
+    <span class="market-growth">+15% / an - 2x en 10 ans</span>
+  </div>
+
+  <div class="countries">
+    <div class="country"><span class="country-flag">🇫🇷</span> 4M PME</div>
+    <div class="country"><span class="country-flag">🇩🇪</span> 3.5M PME</div>
+    <div class="country"><span class="country-flag">🇧🇪</span> 1M PME</div>
+    <div class="country"><span class="country-flag">🇨🇭</span> 600K</div>
+    <div class="country"><span class="country-flag">🇱🇺</span> 40K</div>
+  </div>
+
+  <p class="footer-text" style="margin-top: 32px;">
+    <strong style="color: var(--accent);">9+ millions</strong> d'entreprises sans solution. Nous arrivons premiers.
+  </p>
+</section>
+
+<!-- SLIDE 6: WHY US - Competitive moats -->
+<section class="slide" id="slide6">
+  <span class="slide-number">06 / 08</span>
+
+  <h2 class="headline">
+    Pourquoi <span class="gradient">nous</span><br>
+    et pas les autres?
+  </h2>
+
+  <div class="moat-list">
+    <div class="moat-item">
+      <div class="moat-check">✓</div>
+      <div class="moat-content">
+        <h4>100% Européen - Zero Cloud Act</h4>
+        <p>Hébergé en Suède. Vos données ne quittent JAMAIS l'Europe.</p>
+      </div>
+    </div>
+
+    <div class="moat-item">
+      <div class="moat-check">✓</div>
+      <div class="moat-content">
+        <h4>Zero Data - Rien stocké</h4>
+        <p>Vos documents traités en mémoire. Effacés instantanément. Vérifiable.</p>
+      </div>
+    </div>
+
+    <div class="moat-item">
+      <div class="moat-check">✓</div>
+      <div class="moat-content">
+        <h4>5 juridictions dès le lancement</h4>
+        <p>FR, BE, LU, DE, CH. Aucun concurrent ne couvre ça.</p>
+      </div>
+    </div>
+
+    <div class="moat-item">
+      <div class="moat-check">✓</div>
+      <div class="moat-content">
+        <h4>RGPD + AI Act natif</h4>
+        <p>Conforme dès la conception. Pas un patch post-lancement.</p>
+      </div>
     </div>
   </div>
 
-  <div class="hero-stat">
-    <div class="hero-stat-value gradient-text">2000x</div>
-    <div class="hero-stat-label">moins cher qu'un avocat traditionnel</div>
+  <div class="proof-grid">
+    <div class="proof-card">
+      <div class="proof-value">5</div>
+      <div class="proof-label">Modules IA</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-value">30s</div>
+      <div class="proof-label">Temps réponse</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-value">28€</div>
+      <div class="proof-label">/ mois</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-value">Live</div>
+      <div class="proof-label">En prod</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7: THE ASK - Clear, bold -->
+<section class="slide" id="slide7">
+  <span class="slide-number">07 / 08</span>
+
+  <h2 class="headline">
+    Le droit pour <span class="gradient glow">tous</span>.<br>
+    Pas que pour les riches.
+  </h2>
+
+  <p class="quote">
+    "L'accès au droit est un droit fondamental.<br>
+    Nous le rendons enfin accessible."
+  </p>
+
+  <div class="cta-section">
+    <div class="cta-title">Rejoignez la révolution</div>
+    <div class="cta-desc">
+      Premiers investisseurs. Premières parts.<br>
+      Le marché de 72 Mrd€ se construit maintenant.
+    </div>
+    <a href="mailto:contact@juridique.ai" class="cta-button">Discutons →</a>
+  </div>
+</section>
+
+<!-- SLIDE 8: CONTACT - Resources -->
+<section class="slide" id="slide8">
+  <span class="slide-number">08 / 08</span>
+
+  <h2 class="headline" style="font-size: clamp(28px, 6vw, 48px);">
+    Voyez par vous-même
+  </h2>
+
+  <p class="sub-headline" style="margin-bottom: 32px;">
+    Le produit est live. Testez-le.
+  </p>
+
+  <div class="links-grid">
+    <a href="https://aoli-juridique-prod-frontend.azurewebsites.net" target="_blank" class="link-card">
+      <span class="link-icon">🚀</span>
+      <span class="link-text">Démo live</span>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <a href="https://juridiqueaiwww9381.z28.web.core.windows.net" target="_blank" class="link-card">
+      <span class="link-icon">🌐</span>
+      <span class="link-text">Site vitrine</span>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <a href="https://github.com/Juridique-ai" target="_blank" class="link-card">
+      <span class="link-icon">📦</span>
+      <span class="link-text">GitHub</span>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <a href="/presentation.html" class="link-card">
+      <span class="link-icon">📊</span>
+      <span class="link-text">Tech deep-dive</span>
+      <span class="link-arrow">→</span>
+    </a>
+  </div>
+
+  <div class="badge-row" style="margin-top: 40px;">
+    <span class="badge"><span class="badge-check">✓</span> RGPD compliant</span>
+    <span class="badge"><span class="badge-check">✓</span> AI Act ready</span>
+    <span class="badge"><span class="badge-check">✓</span> 100% EU hosted</span>
+    <span class="badge"><span class="badge-check">✓</span> Zero Data</span>
   </div>
 
   <p class="footer-text">
-    1 heure d'avocat = 2000 analyses IA
-  </p>
-</section>
-
-<!-- SLIDE 5: Market -->
-<section class="slide" id="slide5">
-  <span class="slide-number">05</span>
-
-  <h2>L'opportunité</h2>
-
-  <p class="subtitle">
-    Le marché LegalTech européen explose. Nous ciblons les PME et indépendants.
-  </p>
-
-  <div class="market-card">
-    <div class="market-value gradient-text">35 Mrd€</div>
-    <div class="market-label">Marché LegalTech EU 2025</div>
-    <span class="market-growth">+15% / an</span>
-  </div>
-
-  <div class="market-card">
-    <div class="market-value gradient-text">72 Mrd€</div>
-    <div class="market-label">Projection 2035</div>
-    <span class="market-growth">×2 en 10 ans</span>
-  </div>
-
-  <div class="features-grid" style="margin-top: 24px;">
-    <div class="feature-card">
-      <div class="feature-icon">🇫🇷</div>
-      <div class="feature-content">
-        <h4>France</h4>
-        <p>4M de PME</p>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🇧🇪</div>
-      <div class="feature-content">
-        <h4>Belgique</h4>
-        <p>1M de PME</p>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🇱🇺</div>
-      <div class="feature-content">
-        <h4>Luxembourg</h4>
-        <p>40K entreprises</p>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🇩🇪</div>
-      <div class="feature-content">
-        <h4>Allemagne</h4>
-        <p>3.5M de PME</p>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🇨🇭</div>
-      <div class="feature-content">
-        <h4>Suisse</h4>
-        <p>600K entreprises</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 6: Traction & Product -->
-<section class="slide" id="slide6">
-  <span class="slide-number">06</span>
-
-  <h2>Où nous en sommes</h2>
-
-  <div class="metrics-grid">
-    <div class="metric-card">
-      <div class="metric-value">5</div>
-      <div class="metric-label">Modules IA</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-value">5</div>
-      <div class="metric-label">Juridictions</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-value">28€</div>
-      <div class="metric-label">Coût/mois</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-value">100%</div>
-      <div class="metric-label">Conforme EU</div>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <h3>Avantages compétitifs</h3>
-
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">🇪🇺</div>
-      <div class="feature-content">
-        <h4>100% Européen</h4>
-        <p>Données hébergées en Suède. Pas de Cloud Act.</p>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🔐</div>
-      <div class="feature-content">
-        <h4>Zero Data</h4>
-        <p>Aucune donnée stockée sur nos serveurs.</p>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">⚡</div>
-      <div class="feature-content">
-        <h4>Temps réel</h4>
-        <p>Réponses en streaming, 30 sec max.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 7: Roadmap -->
-<section class="slide" id="slide7">
-  <span class="slide-number">07</span>
-
-  <h2>Roadmap</h2>
-
-  <div class="timeline">
-    <div class="timeline-item done">
-      <span class="timeline-badge done">Livré ✓</span>
-      <div class="timeline-content">
-        <h4>MVP Complet</h4>
-        <p>5 modules IA, 5 juridictions, auth Microsoft, CI/CD, site vitrine</p>
-      </div>
-    </div>
-
-    <div class="timeline-item current">
-      <span class="timeline-badge current">En cours</span>
-      <div class="timeline-content">
-        <h4>Phase commerciale</h4>
-        <p>Premiers clients pilotes, export PDF, métriques utilisateurs</p>
-      </div>
-    </div>
-
-    <div class="timeline-item future">
-      <span class="timeline-badge future">6-12 mois</span>
-      <div class="timeline-content">
-        <h4>Scale</h4>
-        <p>API publique, intégration paiement, multi-langue</p>
-      </div>
-    </div>
-
-    <div class="timeline-item future">
-      <span class="timeline-badge future">12+ mois</span>
-      <div class="timeline-content">
-        <h4>Expansion</h4>
-        <p>App mobile, IA spécialisée corpus FR, nouvelles juridictions</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 8: CTA -->
-<section class="slide" id="slide8">
-  <span class="slide-number">08</span>
-
-  <h2>Rejoignez l'aventure</h2>
-
-  <p class="subtitle">
-    Nous révolutionnons l'accès au droit en Europe. Soyez parmi les premiers investisseurs.
-  </p>
-
-  <div class="contact-grid">
-    <a href="https://aoli-juridique-prod-frontend.azurewebsites.net" target="_blank" class="contact-card">
-      <div class="contact-icon">🚀</div>
-      <div class="contact-info">
-        <h4>Voir la démo</h4>
-        <p>Application live en production</p>
-      </div>
-    </a>
-
-    <a href="https://juridiqueaiwww9381.z28.web.core.windows.net" target="_blank" class="contact-card">
-      <div class="contact-icon">🌐</div>
-      <div class="contact-info">
-        <h4>Site vitrine</h4>
-        <p>Découvrir les modules</p>
-      </div>
-    </a>
-
-    <a href="https://github.com/Juridique-ai" target="_blank" class="contact-card">
-      <div class="contact-icon">📦</div>
-      <div class="contact-info">
-        <h4>GitHub</h4>
-        <p>Code source & documentation</p>
-      </div>
-    </a>
-
-    <a href="/presentation.html" class="contact-card">
-      <div class="contact-icon">📊</div>
-      <div class="contact-info">
-        <h4>Présentation technique</h4>
-        <p>Architecture & conformité</p>
-      </div>
-    </a>
-  </div>
-
-  <div class="cta-box">
-    <h3>Prêt à investir ?</h3>
-    <p>Discutons de comment Juridique AI peut transformer le marché juridique européen.</p>
-    <a href="mailto:contact@juridique.ai" class="cta-button">Nous contacter</a>
-  </div>
-
-  <p class="footer-text" style="margin-top: 40px;">
-    Décembre 2025 • Juridique AI<br>
-    <small>RGPD ✓ AI Act ✓ 100% Hébergé en Europe ✓</small>
+    <strong style="color: white;">Juridique AI</strong> • Décembre 2025<br>
+    <span style="color: var(--primary);">contact@juridique.ai</span>
   </p>
 </section>
 
